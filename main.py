@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter.ttk import *
 import database as db1
-
+import matplotlib.pyplot as plt
 db1.create()
 def click1():
     txt=income.get()
@@ -36,14 +36,24 @@ def click3():
     label6=Label(window,text="clothes:        "+str(clothes),font=("Helvetica", 16))
     label6.grid(column=0,row=9,pady=7)
 
+def click4():
+    Transaction=db1.select_all_transcation()
+    food=Transaction['food']
+    transportion=Transaction['transportion']
+    clothes=Transaction['clothes']
+    names=['transportion','food','clothes']
+    values=[transportion,food,clothes]
+    plt.figure(figsize=(9,3))
+    plt.bar(names,values)
+    plt.show()
+
 window =Tk()
 window.title("Expense Tracker")
 window.geometry('600x500')
 style=Style()
-#background optional just insert your path
-'''filename = PhotoImage(file = "/home/missrobot/Downloads/anime2.png")
+filename = PhotoImage(file = "/home/missrobot/Downloads/anime2.png")
 background_label = Label(window, image=filename)
-background_label.place(x=0, y=0, relwidth=1, relheight=1)'''
+background_label.place(x=0, y=0, relwidth=1, relheight=1)
 style.configure('TButton',font=('calibri',10,'bold'),foreground='red')
 comb=Combobox()
 label1=Label(window,text="Please Enter You Income",font=("Helvetica", 16))
@@ -63,7 +73,9 @@ theExpense=Entry(window,width=10)
 theExpense.grid(column=1,row=4)
 button2=Button(window,text="Click Once",style='TButton',command=click2)
 button2.grid(column=2,row=4)
+
 button3=Button(window,text="Show Transaction",command=click3)
 button3.grid(column=0,row=6,pady=9)
-
+button4=Button(window,text="Show Graph of transcations",command=click4)
+button4.grid(column=1,row=6)
 window.mainloop()
