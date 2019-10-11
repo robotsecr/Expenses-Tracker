@@ -40,9 +40,10 @@ window =Tk()
 window.title("Expense Tracker")
 window.geometry('600x500')
 style=Style()
-filename = PhotoImage(file = "/home/missrobot/Downloads/anime2.png")
+#background optional just insert your path
+'''filename = PhotoImage(file = "/home/missrobot/Downloads/anime2.png")
 background_label = Label(window, image=filename)
-background_label.place(x=0, y=0, relwidth=1, relheight=1)
+background_label.place(x=0, y=0, relwidth=1, relheight=1)'''
 style.configure('TButton',font=('calibri',10,'bold'),foreground='red')
 comb=Combobox()
 label1=Label(window,text="Please Enter You Income",font=("Helvetica", 16))
