@@ -79,3 +79,5 @@ button3.grid(column=0,row=6,pady=9)
 button4=Button(window,text="Show Graph of transcations",command=click4)
 button4.grid(column=1,row=6)
 window.mainloop()
+
+                                                                #By Miss.Robot
